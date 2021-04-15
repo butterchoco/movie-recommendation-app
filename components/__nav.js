@@ -1,6 +1,5 @@
-import { Image } from "@chakra-ui/image";
 import { Input, InputGroup, InputLeftElement } from "@chakra-ui/input";
-import { Box, HStack } from "@chakra-ui/layout";
+import { Box, HStack, Text } from "@chakra-ui/layout";
 import styled from "@emotion/styled";
 import { Search2Icon } from "@chakra-ui/icons";
 
@@ -22,10 +21,11 @@ const Search = () => (
 
 const Nav = () => {
   return (
-    <Box position="sticky" top="0" left="0" padding="2">
+    <Box position="fixed" top="0" left="0" zIndex="999" padding="2">
       <HStack>
         <Logo>
-          <Image src="" alt="logo" />
+          <Text>Logo</Text>
+          {/* <Image src="" alt="logo" /> */}
         </Logo>
         <Search />
       </HStack>
