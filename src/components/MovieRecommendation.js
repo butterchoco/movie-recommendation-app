@@ -65,19 +65,30 @@ const MovieDescription = styled.p`
   margin: 10px 0;
 `;
 
+const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 1rem;
+`;
+
 const Title = styled.h3`
   color: #fff;
 `;
 
+const More = styled.a`
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    color: #aaa;
+  }
+`;
+
 const MovieRecommendation = () => {
-  const [movies, setMovies] = useState([
-    {
-      movie: "dummy",
-      poster:
-        "https://media-cache.cinematerial.com/p/500x/rlhwo8t9/dummy-dutch-movie-poster.jpg?v=1456307982",
-      desc: "This is just dummy",
-    },
-  ]);
+  const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     fetchRecommendedMovies();
@@ -91,11 +102,16 @@ const MovieRecommendation = () => {
     setMovies(response.list);
   };
 
+  if (movies.length === 0) return null;
+
   return (
     <Container>
-      <Title>Recommendation</Title>
+      <Header>
+        <Title>Recommendation</Title>
+        <More href="/movies/recommended">Lihat Semua</More>
+      </Header>
       <MovieCarousel>
-        {movies.map(({ poster, movie, desc }, index) => (
+        {movies.slice(0, 10).map(({ poster, movie, desc }, index) => (
           <MovieCard key={index}>
             <MoviePoster src={poster} />
             <MovieWrapper>
