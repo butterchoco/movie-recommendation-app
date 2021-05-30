@@ -37,7 +37,7 @@ const MovieTitle = styled.h1`
 `;
 
 const MovieDescription = styled.p`
-  color: #aaa;
+  color: #ddd;
 `;
 
 const MovieHighlight = () => {

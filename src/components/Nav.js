@@ -8,6 +8,7 @@ const Header = styled.header`
 `;
 
 const InputSearch = styled.input`
+  width: 50%;
   background-color: #444;
   border: 0;
   padding: 5px 10px 5px 2rem;
@@ -15,15 +16,32 @@ const InputSearch = styled.input`
   outline: none;
   color: #999;
   font-size: 14px;
+  transition: width 0.2s ease;
+
+  &:focus,
+  &:active {
+    width: 100%;
+  }
 `;
 
 const SearchWrapper = styled.div`
   position: relative;
+  width: 100%;
+`;
+
+const Logo = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
 `;
 
 const Nav = () => {
   return (
     <Header>
+      <Logo>
+        <i class="fab fa-accusoft"></i>
+      </Logo>
       <SearchWrapper>
         <i
           className="fas fa-search"

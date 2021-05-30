@@ -1,11 +1,10 @@
 import styled from "styled-components";
 import { useEffect, useState } from "preact/compat";
-import { Base64 } from "js-base64";
 
 const Container = styled.section`
   display: flex;
   flex-direction: column;
-  padding: 0 0 1rem 1rem;
+  padding: 0 1rem;
 `;
 
 const MovieCarousel = styled.div`
