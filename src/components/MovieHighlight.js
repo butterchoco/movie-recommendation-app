@@ -28,6 +28,10 @@ const MovieOverlay = styled.div`
   background: linear-gradient(45deg, #111, transparent);
 `;
 
+const MovieWrapper = styled.div`
+  width: 50%;
+`;
+
 const MovieTitle = styled.h1`
   color: #fff;
 `;
@@ -41,15 +45,17 @@ const MovieHighlight = () => {
     <MovieTrailer>
       <MoviePoster />
       <MovieOverlay />
-      <MovieTitle>Rangkul</MovieTitle>
-      <MovieDescription>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book. It has survived not only five
-        centuries, but also the leap into electronic typesetting, remaining
-        essentially unchanged.
-      </MovieDescription>
+      <MovieWrapper>
+        <MovieTitle>Rangkul</MovieTitle>
+        <MovieDescription>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. It has survived not only
+          five centuries, but also the leap into electronic typesetting,
+          remaining essentially unchanged.
+        </MovieDescription>
+      </MovieWrapper>
     </MovieTrailer>
   );
 };
