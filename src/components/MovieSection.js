@@ -62,13 +62,14 @@ const MovieSection = ({ url, title }) => {
         <More href={url}>Lihat Semua</More>
       </Header>
       <MovieCarousel>
-        {movies.slice(0, 10).map(({ poster, movie, desc }, index) => (
+        {movies.slice(0, 10).map(({ poster, movie, desc, rating }, index) => (
           <MovieCard
             key={index}
             url={"/detail/" + movie}
             poster={poster}
             name={movie.split("_").join(" ").toUpperCase()}
             desc={desc && desc.slice(0, 60) + "..."}
+            rating={rating}
           />
         ))}
       </MovieCarousel>

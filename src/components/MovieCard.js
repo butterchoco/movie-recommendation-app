@@ -42,15 +42,28 @@ const MoviePoster = styled.img`
 const MovieTitle = styled.h4`
   margin: 0;
 `;
+
 const MovieDescription = styled.p`
   font-size: 14px;
   margin: 10px 0;
 `;
 
-const MovieCard = ({ url, name, poster, desc }) => {
+const MovieRating = styled.p`
+  position: absolute;
+  z-index: 1;
+  background-color: #fcc203;
+  color: #222;
+  font-weight: 600;
+  padding: 0.5rem;
+  right: 0;
+  top: 0;
+`;
+
+const MovieCard = ({ url, name, poster, desc, rating }) => {
   return (
     <MovieCardContainer href={url}>
       <MoviePoster src={poster} />
+      <MovieRating>{rating}</MovieRating>
       <MovieWrapper>
         <MovieTitle>{name}</MovieTitle>
         <MovieDescription>{desc}</MovieDescription>

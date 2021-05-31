@@ -1,3 +1,4 @@
+import { useEffect, useState } from "preact/hooks";
 import styled from "styled-components";
 
 const MovieTrailer = styled.section`
@@ -72,12 +73,51 @@ const Genre = styled.p`
 
 const MovieYear = styled.p`
   color: #ddd;
+  margin: 0;
 `;
 
 const MovieActors = styled.ul``;
 
 const Actor = styled.li`
   color: #fff;
+`;
+
+const MovieRating = styled.p`
+  width: fit-content;
+  background-color: #fcc203;
+  color: #222;
+  font-weight: 600;
+  padding: 0.5rem;
+  right: 0;
+  top: 0;
+`;
+
+const HorizontalWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+
+const InputRating = styled.input`
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 0;
+  height: 100%;
+  font-size: 16px;
+`;
+
+const AddRating = styled.button`
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 0;
+  height: 100%;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #fff;
+
+  &:hover {
+    background-color: #ddd;
+  }
 `;
 
 const MovieHighlight = ({
@@ -88,7 +128,42 @@ const MovieHighlight = ({
   genres,
   actors,
   hasThumbnail,
+  rating,
 }) => {
+  const [ratingInput, setRatingInput] = useState(null);
+
+  const [isAddedRating, setIsAddedRating] = useState(false);
+
+  useEffect(() => {
+    if (
+      window.localStorage.getItem(title) !== null &&
+      window.localStorage.getItem(title) !== undefined
+    ) {
+      setIsAddedRating(true);
+    }
+  }, [isAddedRating]);
+
+  const submitRating = async () => {
+    const form = {
+      user: "user4",
+      movie: title,
+      rating: ratingInput,
+    };
+
+    if (isAddedRating) return;
+
+    const promise = await fetch(
+      "http://localhost:8000" +
+        `/movies/add_rating?user=${"user4"}&movie=${title}&rating=${ratingInput}`
+    );
+    const response = await promise.json();
+    if (!response) return;
+    window.localStorage.setItem(title, form);
+    setIsAddedRating(true);
+  };
+
+  console.log(window.localStorage.getItem(title));
+
   return (
     <MovieTrailer>
       <MoviePoster src={poster} />
@@ -96,9 +171,12 @@ const MovieHighlight = ({
       {hasThumbnail && <MovieThumbnail src={poster} />}
       <MovieWrapper>
         {year && <MovieYear>{year}</MovieYear>}
-        <MovieTitle href={"/detail/" + title}>
-          {title.split("_").join(" ").toUpperCase()}
-        </MovieTitle>
+        <HorizontalWrapper>
+          <MovieTitle href={"/detail/" + title}>
+            {title.split("_").join(" ").toUpperCase()}
+          </MovieTitle>
+          {rating && <MovieRating>{rating}</MovieRating>}
+        </HorizontalWrapper>
         <MovieGenres>
           {genres &&
             genres.map((data, index) => <Genre key={index}>{data}</Genre>)}
@@ -116,6 +194,17 @@ const MovieHighlight = ({
             <Actor>{actors.length - 5}+ others.</Actor>
           )}
         </MovieActors>
+        {!isAddedRating && (
+          <HorizontalWrapper>
+            <InputRating
+              placeholder="Masukkan ratingmu"
+              onChange={(e) => {
+                setRatingInput(e.target.value);
+              }}
+            />
+            <AddRating onClick={submitRating}>Add Rating</AddRating>
+          </HorizontalWrapper>
+        )}
       </MovieWrapper>
     </MovieTrailer>
   );

@@ -36,6 +36,7 @@ const MovieDetail = ({ name }) => {
         genres={movieSelected.genres}
         year={movieSelected.year}
         actors={movieSelected.actors}
+        rating={movieSelected.rating}
         hasThumbnail
       />
     </Container>
