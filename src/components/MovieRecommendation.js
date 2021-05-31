@@ -111,7 +111,7 @@ const MovieRecommendation = () => {
       </Header>
       <MovieCarousel>
         {movies.slice(0, 10).map(({ poster, movie, desc }, index) => (
-          <MovieCard key={index}>
+          <MovieCard key={index} href={"/detail/" + movie}>
             <MoviePoster src={poster} />
             <MovieWrapper>
               <MovieTitle>

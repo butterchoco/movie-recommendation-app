@@ -2,7 +2,6 @@ import styled from "styled-components";
 import MovieHighlight from "../components/MovieHighlight";
 import MovieRecommendation from "../components/MovieRecommendation";
 import MovieGenres from "../components/MovieGenres";
-import Nav from "../components/Nav";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useEffect, useState } from "preact/hooks";
@@ -34,7 +33,6 @@ const Home = () => {
 
   return (
     <Container>
-      <Nav />
       <MovieHighlight
         title={movieSelected.movie}
         description={movieSelected.desc}

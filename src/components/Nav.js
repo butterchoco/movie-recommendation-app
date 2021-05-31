@@ -30,17 +30,22 @@ const SearchWrapper = styled.div`
   width: 100%;
 `;
 
-const Logo = styled.div`
+const Logo = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 1rem;
+  color: #fff;
+
+  &:hover {
+    color: #aaa;
+  }
 `;
 
 const Nav = () => {
   return (
     <Header>
-      <Logo>
+      <Logo href="/">
         <i class="fab fa-accusoft"></i>
       </Logo>
       <SearchWrapper>
