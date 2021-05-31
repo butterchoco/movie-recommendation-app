@@ -1,5 +1,18 @@
 import styled from "styled-components";
 
+const MovieWrapper = styled.div`
+  position: absolute;
+  left: 0;
+  bottom: -100px;
+  width: 100%;
+  opacity: 0;
+  z-index: 1;
+  padding: 10px;
+  color: #fff;
+  background: linear-gradient(0deg, #222, transparent);
+  transition: all 0.2s ease;
+`;
+
 const MovieCardContainer = styled.a`
   min-width: 200px;
   min-height: 320px;
@@ -14,19 +27,6 @@ const MovieCardContainer = styled.a`
     bottom: 0;
     opacity: 1;
   }
-`;
-
-const MovieWrapper = styled.div`
-  position: absolute;
-  left: 0;
-  bottom: -100px;
-  width: 100%;
-  opacity: 0;
-  z-index: 1;
-  padding: 10px;
-  color: #fff;
-  background: linear-gradient(0deg, #222, transparent);
-  transition: all 0.2s ease;
 `;
 
 const MoviePoster = styled.img`

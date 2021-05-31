@@ -48,7 +48,9 @@ const MovieWrapper = styled.div`
   width: 50%;
 `;
 
-const MovieTitle = styled.h1`
+const MovieTitle = styled.a`
+  text-decoration: none;
+  font-size: 32px;
   color: #fff;
   margin: 5px 0;
 `;
@@ -94,7 +96,9 @@ const MovieHighlight = ({
       {hasThumbnail && <MovieThumbnail src={poster} />}
       <MovieWrapper>
         {year && <MovieYear>{year}</MovieYear>}
-        <MovieTitle>{title.split("_").join(" ").toUpperCase()}</MovieTitle>
+        <MovieTitle href={"/detail/" + title}>
+          {title.split("_").join(" ").toUpperCase()}
+        </MovieTitle>
         <MovieGenres>
           {genres &&
             genres.map((data, index) => <Genre key={index}>{data}</Genre>)}
@@ -103,7 +107,11 @@ const MovieHighlight = ({
         {actors && <Title>Cast:</Title>}
         <MovieActors>
           {actors &&
-            actors.slice(0, 5).map((data, index) => <Actor>{data}</Actor>)}
+            actors
+              .slice(0, 5)
+              .map((data, index) => (
+                <Actor>{data.split("_").join(" ").toCapitalize()}</Actor>
+              ))}
           {actors && actors.length - 5 !== 0 && (
             <Actor>{actors.length - 5}+ others.</Actor>
           )}

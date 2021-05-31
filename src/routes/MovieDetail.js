@@ -27,8 +27,6 @@ const MovieDetail = ({ name }) => {
 
   if (!movieSelected) return null;
 
-  console.log(movieSelected);
-
   return (
     <Container>
       <MovieHighlight

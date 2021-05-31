@@ -23,8 +23,6 @@ const MovieGrid = styled.section`
 const MovieList = ({ url }) => {
   const [movies, setMovies] = useState([]);
 
-  console.log(url);
-
   useEffect(() => {
     fetchMovies();
   }, []);
