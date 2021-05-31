@@ -41,7 +41,10 @@ const Home = () => {
         poster={movieSelected.poster}
       />
       <MovieGenres />
-      <MovieSection url="/movies/recommended" title="Recommended Movies" />
+      <MovieSection
+        url="/movies/recommended?movie=north"
+        title="Recommended Movies"
+      />
       <MovieSection
         url="/movies/filter/genre?genre=action"
         title="Action Movies"
