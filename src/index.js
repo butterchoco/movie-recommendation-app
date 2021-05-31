@@ -1,6 +1,5 @@
 import { Router } from "preact-router";
 import Home from "./routes/Home";
-import Welcome from "./routes/Welcome";
 import MovieDetail from "./routes/MovieDetail";
 import MovieList from "./routes/MovieList";
 import Nav from "./components/Nav";
@@ -18,9 +17,8 @@ const App = () => (
     </div>
     <Router>
       <Home path="/" />
-      <Welcome path="/welcome" />
       <MovieDetail path="/detail/:name" />
-      <MovieList path="/movies/:name" />
+      <MovieList path="/movies/:param1?/:param2?" />
     </Router>
   </div>
 );

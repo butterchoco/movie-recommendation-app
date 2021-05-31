@@ -44,10 +44,10 @@ const MovieSection = ({ url, title }) => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    fetchRecommendedMovies();
+    fetchMovies();
   }, []);
 
-  const fetchRecommendedMovies = async () => {
+  const fetchMovies = async () => {
     const promise = await fetch("http://localhost:8000" + url);
     const response = await promise.json();
     setMovies(response.list);
@@ -65,7 +65,7 @@ const MovieSection = ({ url, title }) => {
         {movies.slice(0, 10).map(({ poster, movie, desc }, index) => (
           <MovieCard
             key={index}
-            href={"/detail/" + movie}
+            url={"/detail/" + movie}
             poster={poster}
             name={movie.split("_").join(" ").toUpperCase()}
             desc={desc && desc.slice(0, 60) + "..."}

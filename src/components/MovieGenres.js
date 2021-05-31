@@ -45,7 +45,7 @@ const MovieGenre = () => {
   return (
     <CategoryWrapper>
       {genres.map((data, index) => (
-        <Genre key={index} href={"/movies/genre/" + data}>
+        <Genre key={index} href={"/movies/filter/genre?genre=" + data}>
           {data.toCapitalize()}
         </Genre>
       ))}
