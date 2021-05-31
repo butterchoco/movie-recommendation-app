@@ -8,28 +8,6 @@ const Header = styled.header`
   max-height: 64px;
 `;
 
-const InputSearch = styled.input`
-  width: 50%;
-  background-color: #444;
-  border: 0;
-  padding: 5px 10px 5px 2rem;
-  border-radius: 5px;
-  outline: none;
-  color: #999;
-  font-size: 14px;
-  transition: width 0.2s ease;
-
-  &:focus,
-  &:active {
-    width: 100%;
-  }
-`;
-
-const SearchWrapper = styled.div`
-  position: relative;
-  width: 100%;
-`;
-
 const Logo = styled.a`
   display: flex;
   align-items: center;
@@ -48,21 +26,6 @@ const Nav = () => {
       <Logo href="/">
         <i class="fab fa-accusoft"></i>
       </Logo>
-      <SearchWrapper>
-        <i
-          className="fas fa-search"
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "10px",
-            transform: "translateY(-50%)",
-            color: "#666",
-            fontWeight: "400",
-            fontSize: "14px",
-          }}
-        ></i>
-        <InputSearch placeholder="Mau nonton film apa ..." />
-      </SearchWrapper>
     </Header>
   );
 };
