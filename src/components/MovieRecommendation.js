@@ -40,7 +40,7 @@ const MovieWrapper = styled.div`
   transition: all 0.2s ease;
 `;
 
-const MovieCard = styled.div`
+const MovieCard = styled.a`
   min-width: 200px;
   min-height: 320px;
   position: relative;

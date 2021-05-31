@@ -5,6 +5,7 @@ const Header = styled.header`
   background-color: #222;
   display: flex;
   padding: 1rem;
+  max-height: 64px;
 `;
 
 const InputSearch = styled.input`

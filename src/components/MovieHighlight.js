@@ -4,6 +4,7 @@ const MovieTrailer = styled.section`
   position: relative;
   padding: 5%;
   z-index: 0;
+  min-height: 420px;
 `;
 
 const MoviePoster = styled.div`
@@ -13,7 +14,7 @@ const MoviePoster = styled.div`
   left: 0;
   top: 0;
   z-index: -1;
-  background-image: url("https://m.media-amazon.com/images/M/MV5BNTBmZWJkNjctNDhiNC00MGE2LWEwOTctZTk5OGVhMWMyNmVhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg");
+  background-image: url(${(props) => props.src});
   background-repeat: no-repeat;
   background-size: cover;
 `;
@@ -40,21 +41,14 @@ const MovieDescription = styled.p`
   color: #ddd;
 `;
 
-const MovieHighlight = () => {
+const MovieHighlight = ({ title, description, poster }) => {
   return (
     <MovieTrailer>
-      <MoviePoster />
+      <MoviePoster src={poster} />
       <MovieOverlay />
       <MovieWrapper>
-        <MovieTitle>Rangkul</MovieTitle>
-        <MovieDescription>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged.
-        </MovieDescription>
+        <MovieTitle>{title.split("_").join(" ").toUpperCase()}</MovieTitle>
+        <MovieDescription>{description}</MovieDescription>
       </MovieWrapper>
     </MovieTrailer>
   );

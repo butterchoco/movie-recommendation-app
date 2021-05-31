@@ -1,6 +1,6 @@
 import { Router } from "preact-router";
 import Home from "./routes/Home";
-import Nav from "./components/Nav";
+import MovieDetail from "./routes/MovieDetail";
 import "@fortawesome/fontawesome-free/js/all.js";
 import "./style";
 
@@ -10,9 +10,9 @@ String.prototype.toCapitalize = function () {
 
 const App = () => (
   <div id="app">
-    <Nav />
     <Router>
       <Home path="/" />
+      <MovieDetail path="/" />
     </Router>
   </div>
 );
