@@ -23,7 +23,9 @@ const Home = () => {
   }, []);
 
   const fetchMovieHighlights = async () => {
-    const promise = await fetch("http://localhost:8000" + "/movies/sort/year");
+    const promise = await fetch(
+      "http://localhost:8000" + "/movies/sort/year/asc"
+    );
     const response = await promise.json();
     setMovieHighlights(response.list);
     setMovieSelected(response.list[0]);
