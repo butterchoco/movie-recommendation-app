@@ -1,6 +1,8 @@
 import { Router } from "preact-router";
 import Home from "./routes/Home";
+import Welcome from "./routes/Welcome";
 import MovieDetail from "./routes/MovieDetail";
+import MovieList from "./routes/MovieList";
 import Nav from "./components/Nav";
 import "@fortawesome/fontawesome-free/js/all.js";
 import "./style";
@@ -16,7 +18,9 @@ const App = () => (
     </div>
     <Router>
       <Home path="/" />
+      <Welcome path="/welcome" />
       <MovieDetail path="/detail/:name" />
+      <MovieList path="/movies/:name" />
     </Router>
   </div>
 );

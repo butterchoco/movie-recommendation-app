@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import MovieHighlight from "../components/MovieHighlight";
-import MovieRecommendation from "../components/MovieRecommendation";
+import MovieSection from "../components/MovieSection";
 import MovieGenres from "../components/MovieGenres";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -39,7 +39,23 @@ const Home = () => {
         poster={movieSelected.poster}
       />
       <MovieGenres />
-      <MovieRecommendation />
+      <MovieSection url="/movies/recommended" title="Recommended Movies" />
+      <MovieSection
+        url="/movies/filter/genre?genre=action"
+        title="Action Movies"
+      />
+      <MovieSection
+        url="/movies/filter/genre?genre=fantasy"
+        title="Fantasy Movies"
+      />
+      <MovieSection
+        url="/movies/filter/genre?genre=romance"
+        title="Romance Movies"
+      />
+      <MovieSection
+        url="/movies/filter/genre?genre=family"
+        title="Family Movies"
+      />
     </Container>
   );
 };
