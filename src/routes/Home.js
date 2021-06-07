@@ -23,8 +23,13 @@ const Home = () => {
   }, []);
 
   const fetchMovieHighlights = async () => {
+    const requestOptions = {
+      method: 'GET',
+      headers: { 'Authorization': "Basic " + btoa("admin" + ":" + "admin") }
+    };
     const promise = await fetch(
-      "http://localhost:8000" + "/movies/sort/year/asc"
+      "http://localhost:3001" + "/movies/sort/year/asc",
+      requestOptions
     );
     const response = await promise.json();
     setMovieHighlights(response.list);

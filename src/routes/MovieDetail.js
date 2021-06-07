@@ -18,8 +18,13 @@ const MovieDetail = ({ name }) => {
   }, []);
 
   const fetchMovieSelected = async () => {
+    const requestOptions = {
+      method: 'GET',
+      headers: { 'Authorization': "Basic " + btoa("admin" + ":" + "admin") }
+    };
     const promise = await fetch(
-      "http://localhost:8000" + "/movies/detail?name=" + name
+      "http://localhost:3001" + "/movies/detail?name=" + name,
+      requestOptions
     );
     const response = await promise.json();
     setMovieSelected(response);

@@ -35,8 +35,12 @@ const MovieGenre = () => {
     fetchGenres();
   }, []);
 
-  const fetchGenres = async () => {
-    const promise = await fetch("http://localhost:8000" + "/movies/genres");
+  const fetchGenres = async () => {    
+  const requestOptions = {
+    method: 'GET',
+    headers: { 'Authorization': "Basic " + btoa("admin" + ":" + "admin") }
+  };
+    const promise = await fetch("http://localhost:3001" + "/movies/genres", requestOptions);
     const response = await promise.json();
     setGenres(response.list);
   };

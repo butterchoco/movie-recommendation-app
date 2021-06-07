@@ -28,7 +28,11 @@ const MovieList = ({ url }) => {
   }, []);
 
   const fetchMovies = async () => {
-    const promise = await fetch("http://localhost:8000" + url);
+    const requestOptions = {
+      method: 'GET',
+      headers: { 'Authorization': "Basic " + btoa("admin" + ":" + "admin") }
+    };
+    const promise = await fetch("http://localhost:3001" + url, requestOptions);
     const response = await promise.json();
     setMovies(response.list);
   };

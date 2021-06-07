@@ -151,10 +151,18 @@ const MovieHighlight = ({
     };
 
     if (isAddedRating) return;
-
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': "Basic " + btoa("admin" + ":" + "admin") },
+      body: JSON.stringify({
+        user: "user4",
+        movie: title,
+        rating: ratingInput,
+      })
+    };
     const promise = await fetch(
-      "http://localhost:8000" +
-        `/movies/add_rating?user=${"user4"}&movie=${title}&rating=${ratingInput}`
+      "http://localhost:3001/movies/add_rating",
+      requestOptions
     );
     const response = await promise.json();
     if (!response) return;
