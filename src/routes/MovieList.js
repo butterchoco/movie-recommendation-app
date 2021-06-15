@@ -29,8 +29,8 @@ const MovieList = ({ url }) => {
 
   const fetchMovies = async () => {
     const requestOptions = {
-      method: 'GET',
-      headers: { 'Authorization': "Basic " + btoa("admin" + ":" + "admin") }
+      method: "GET",
+      headers: { Authorization: "Basic " + btoa("admin" + ":" + "admin") },
     };
     const promise = await fetch("http://localhost:3001" + url, requestOptions);
     const response = await promise.json();
@@ -44,13 +44,14 @@ const MovieList = ({ url }) => {
         <More href={url}>Lihat Semua</More>
       </Header> */}
       <MovieGrid>
-        {movies.map(({ poster, movie, desc }, index) => (
+        {movies.map(({ poster, movie, desc, rating }, index) => (
           <MovieCard
             key={index}
             url={"/detail/" + movie}
             poster={poster}
             name={movie.split("_").join(" ").toUpperCase()}
             desc={desc && desc.slice(0, 60) + "..."}
+            rating={rating}
           />
         ))}
       </MovieGrid>

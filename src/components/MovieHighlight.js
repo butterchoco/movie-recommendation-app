@@ -145,20 +145,19 @@ const MovieHighlight = ({
 
   const submitRating = async () => {
     const form = {
-      user: "user4",
+      user: "client",
       movie: title,
       rating: ratingInput,
     };
 
     if (isAddedRating) return;
     const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Authorization': "Basic " + btoa("admin" + ":" + "admin") },
-      body: JSON.stringify({
-        user: "user4",
-        movie: title,
-        rating: ratingInput,
-      })
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Basic " + btoa("admin" + ":" + "admin"),
+      },
+      body: JSON.stringify(form),
     };
     const promise = await fetch(
       "http://localhost:3001/movies/add_rating",
